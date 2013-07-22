@@ -15,7 +15,7 @@ URL:            http://pecl.php.net/package/gearman
 Source0:        http://pecl.php.net/get/gearman-%{version}.tgz
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  automake php-devel php-pear
+BuildRequires:  automake php53u-devel php53u-pear
 BuildRequires:  libgearman-devel
 
 Requires(post): %{__pecl}
@@ -28,8 +28,6 @@ Requires:       php(api) = %{php_core_api}
 %else
 Requires:       php-api = %{php_apiver}
 %endif
-
-Requires: php53u >= 5.3.26
 
 %description
 The Gearman extension uses libgearman library to provide API for communicating
@@ -95,5 +93,8 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Sun Jul 14 2013 Blake Gardner <blakegardner@cox.net> 0.8.0-1
+* Mon Jul 22 2013 Blake Gardner <blakegardner@cox.net> 0.8.0-1
+- Upgraded to version 0.8.0
+
+* Mon Sep 27 2010 Andy Thompson <athompson@ibuildings.com> 0.7.0-1
 - Initial release
