@@ -5,7 +5,7 @@
 %define pecl_name gearman
 
 Name:           php53u-pecl-gearman
-Version:        0.8.0
+Version:        1.1.1
 Release:        1%{?dist}
 Summary:        PECL package for gearmand
 
@@ -93,6 +93,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Jul 22 2013 Blake Gardner <blakegardner@cox.net> 1.1.1-1
+- Upgraded to version 1.1.1
+
 * Mon Jul 22 2013 Blake Gardner <blakegardner@cox.net> 0.8.0-1
 - Upgraded to version 0.8.0
 
