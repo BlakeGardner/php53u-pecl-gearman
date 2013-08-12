@@ -3,10 +3,11 @@
 %{!?php_extdir: %{expand: %%global php_extdir %(php-config --extension-dir)}}
 
 %define pecl_name gearman
+%define php_base php53u
 
-Name:           php53u-pecl-gearman
+Name:           %{php_base}-pecl-gearman
 Version:        1.1.1
-Release:        1%{?dist}
+Release:        2.ius%{?dist}
 Summary:        PECL package for gearmand
 
 License:        BSD
@@ -15,7 +16,7 @@ URL:            http://pecl.php.net/package/gearman
 Source0:        http://pecl.php.net/get/gearman-%{version}.tgz
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  automake php53u-devel php53u-pear
+BuildRequires:  automake %{php_base}-devel %{php_base}-pear
 BuildRequires:  libgearman-devel
 
 Requires(post): %{__pecl}
@@ -23,10 +24,10 @@ Requires(postun): %{__pecl}
 Provides:       php-pecl(Gearman) = %{version}
 
 %if 0%{?php_zend_api}
-Requires:       php(zend-abi) = %{php_zend_api}
-Requires:       php(api) = %{php_core_api}
+Requires:       %{php_base}(zend-abi) = %{php_zend_api}
+Requires:       %{php_base}(api) = %{php_core_api}
 %else
-Requires:       php-api = %{php_apiver}
+Requires:       %{php_base}-api = %{php_apiver}
 %endif
 
 %description
@@ -93,6 +94,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Jul 29 2013 Ben Harper <ben.harper@rackspace.com> - 1.1.1-2
+- ported from https://github.com/BlakeGardner/php53u-pecl-gearman
+
 * Mon Jul 22 2013 Blake Gardner <blakegardner@cox.net> 1.1.1-1
 - Upgraded to version 1.1.1
 
